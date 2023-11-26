@@ -56,7 +56,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void SetValidation() {
-        // Check for a valid email address.
         if (email.getText().toString().isEmpty()) {
             emailError.setError(getResources().getString(R.string.email_error));
             isEmailValid = false;
