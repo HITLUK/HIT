@@ -6,6 +6,13 @@ private String password;
 private int id;
 private int dost;
 
+    public Person(String login, String password, int id, int dost) {
+        this.login = login;
+        this.password = password;
+        this.id = id;
+        this.dost = dost;
+    }
+
     public String getLogin() {
         return login;
     }
