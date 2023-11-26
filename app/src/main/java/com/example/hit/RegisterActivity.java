@@ -1,9 +1,5 @@
 package com.example.hit;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-
 import android.content.Intent;
 import android.util.Patterns;
 
@@ -18,52 +14,67 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    EditText email, password;
-    Button login;
-    TextView register;
-    boolean isEmailValid, isPasswordValid;
-    TextInputLayout emailError, passError;
+    EditText name, email, phone, password;
+    Button register;
+    TextView login;
+    boolean isNameValid, isEmailValid, isPhoneValid, isPasswordValid;
+    TextInputLayout nameError, emailError, phoneError, passError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login);
-        register = (TextView) findViewById(R.id.register);
+        login = (TextView) findViewById(R.id.login);
+        register = (Button) findViewById(R.id.register);
+        nameError = (TextInputLayout) findViewById(R.id.nameError);
         emailError = (TextInputLayout) findViewById(R.id.emailError);
+        phoneError = (TextInputLayout) findViewById(R.id.phoneError);
         passError = (TextInputLayout) findViewById(R.id.passError);
 
-        login.setOnClickListener(new View.OnClickListener() {
+        register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SetValidation();
             }
         });
 
-        register.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // redirect to RegisterActivity
-               Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
-               startActivity(intent);
+                // redirect to LoginActivity
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
             }
         });
     }
 
     public void SetValidation() {
+        // Check for a valid name.
+        if (name.getText().toString().isEmpty()) {
+            nameError.setError(getResources().getString(R.string.name_error));
+            isNameValid = false;
+        } else  {
+            isNameValid = true;
+            nameError.setErrorEnabled(false);
+        }
+
         // Check for a valid email address.
         if (email.getText().toString().isEmpty()) {
             emailError.setError(getResources().getString(R.string.email_error));
+            isEmailValid = false;
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches()) {
+            emailError.setError(getResources().getString(R.string.error_invalid_email));
             isEmailValid = false;
         } else  {
             isEmailValid = true;
             emailError.setErrorEnabled(false);
         }
+
 
         // Check for a valid password.
         if (password.getText().toString().isEmpty()) {
@@ -77,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
             passError.setErrorEnabled(false);
         }
 
-        if (isEmailValid && isPasswordValid) {
+        if (isNameValid && isEmailValid && isPhoneValid && isPasswordValid) {
             Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_SHORT).show();
         }
 

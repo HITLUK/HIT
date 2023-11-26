@@ -4,12 +4,11 @@
     <string name="prompt_password">Пароль</string>
     <string name="login">Войти</string>
     <string name="create_new">Нажмите сюда чтобы создать учетную запись</string>
-    <string name="not_register"></string>
-    <string name="name">Имя</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="register">Register</string>
-    <string name="name_error">Please enter your name</string>
-    <string name="phone_error">Please enter your phone number</string>
+    <string name="not_register">Войти</string>
+    <string name="name">Логин</string>
+
+    <string name="register">Загеристрироваться</string>
+    <string name="name_error">Введите ваше имя</string>
     <string name="email_error">Please enter your email address</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="password_error">Please enter a password</string>
