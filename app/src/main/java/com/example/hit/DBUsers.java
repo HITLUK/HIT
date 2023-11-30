@@ -109,12 +109,12 @@ public class DBUsers {
         @Override
         public void onCreate(SQLiteDatabase db) {
             String query = "CREATE TABLE " + TABLE_NAME + " (" +
-                    COLUMN_ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_LOGIN + "TEXT, " +
+                    COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_LOGIN + " TEXT, " +
                     COLUMN_PASSWORD + "TEXT, " +
-                    COLUMN_NAME + "TEXT, " +
-                    COLUMN_SURNAME + "TEXT, " +
-                    COLUMN_ROLE + "TEXT);";
+                    COLUMN_NAME + " TEXT, " +
+                    COLUMN_SURNAME + " TEXT, " +
+                    COLUMN_ROLE + " TEXT); ";
             db.execSQL(query);
         }
 

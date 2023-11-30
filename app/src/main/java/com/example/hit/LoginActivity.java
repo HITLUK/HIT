@@ -2,6 +2,8 @@ package com.example.hit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import android.content.Intent;
@@ -10,6 +12,8 @@ import android.util.Patterns;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
@@ -19,18 +23,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginActivity extends AppCompatActivity {
-
+DBUsers db;
+Context context;
     EditText email, password;
     Button login;
+    ListView listView;
     TextView register;
     boolean isEmailValid, isPasswordValid;
+    Cursor cursor;
     TextInputLayout emailError, passError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        db = new DBUsers(this);
         email = (EditText) findViewById(R.id.email);
         password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
@@ -79,6 +86,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if (isEmailValid && isPasswordValid) {
             Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_SHORT).show();
+            db.insert("admin","admin","Kirill","Kuznetsov","admin");
+
         }
 
     }
