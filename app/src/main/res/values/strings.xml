@@ -9,8 +9,8 @@
 
     <string name="register">Загеристрироваться</string>
     <string name="name_error">Введите ваше имя</string>
-    <string name="email_error">Please enter your email address</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="password_error">Please enter a password</string>
-    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
+    <string name="email_error">Введите ваш логин</string>
+    <string name="error_invalid_email">Ваш логин неправильный</string>
+    <string name="password_error">Введите пароль</string>
+    <string name="error_invalid_password">Минимальная длина пароля - 6 знаков</string>
 </resources>
